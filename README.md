@@ -1,21 +1,20 @@
-# Splitwise - Expense Tracker System
+# Daily Expenses Sharing Application
 
 ## Overview
 
-Splitwise project is an example Flask web application designed to manage expenses among users. This README provides an overview of the project structure and how to run the application.
+expanse sharing application project is an example Flask web application designed to manage expenses among users. This README provides an overview of the project structure and how to run the application.
 
 ## Directory Structure
 
 ```lua
-splitwise/
-├── db.sqlite3
+expense_sharing_application/
 ├── manage.py
-├── splitwise/
+├── expense_sharing_application/
 │   ├── __init__.py
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-├── divvy/
+├── expense/
 │   ├── migrations/
 │   │   └── __init__.py
 │   ├── __init__.py
@@ -27,17 +26,17 @@ splitwise/
 │   └── views.py
 ├── templates/
 │   └── index.html
-└── Backend Programming Assignment - Splitwise Indore.pdf
+└──Back end Intern Assignment.pdf
 ```
 
 
 ## Project Structure
 
-- The `splitwise/` directory serves as the root directory of the Django project.
+- The `expense_sharing_application/` directory serves as the root directory of the Django project.
 
     - **`manage.py`**: A command-line utility for managing the project.
 
-    - **`splitwise/`**: The main Django app for the Splitwise project.
+    - **`expense_sharing_application/`**: The main Django app for the expense_sharing_application project.
 
         - **`__init__.py`**: Marks the directory as a Python package.
         
@@ -47,7 +46,7 @@ splitwise/
         
         - **`wsgi.py`**: Entry point for WSGI-compatible web servers.
 
-    - **`divvy/`**: A secondary app within the project, possibly handling expense-related functionalities.
+    - **`expense/`**: A secondary app within the project, possibly handling expense-related functionalities.
 
         - **`migrations/`**: Contains database migration files.
         
@@ -65,19 +64,40 @@ To set up and run the Django project with Django REST Framework:
 1. Install Django and Django REST Framework:
 
     ```bash
-    pip install django djangorestframework
+    pip install django djangorestframework mysqlclient
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd splitwise/
+    cd expense_sharing_application/
     ```
 
-3. Apply database migrations:
+
+
+3. Configure Database (MySQL)
+         `Install MySQL and create a new database:`
+   
 
     ```bash
-    python manage.py migrate
+    CREATE DATABASE expense_db;
+    ```
+4. Update settings.py to use MySQL:` In expense_app/settings.py, find the DATABASES section and update it like so:`
+    ```bash
+       DATABASES = {
+                'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'expense_db',
+                'USER': 'your_databse_username',
+                'PASSWORD': 'your_mysql_password',
+                'HOST': 'localhost',
+                'PORT': '3306',
+                  }
+              }
+    ```
+5. Apply database migrations:
+   ```bash
+      python manage.py migrate
     ```
 
 4. Start the development server:
@@ -96,7 +116,7 @@ To set up and run the Django project with Django REST Framework:
 
     Follow the prompts to create a username, email, and password.
 
-Now you're ready to use the Splitwise Django application with Django REST Framework!
+Now you're ready to use the expense_sharing_application Django application with Django REST Framework!
 
 
 
